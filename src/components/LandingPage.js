@@ -20,7 +20,6 @@ const LandingPage = () => {
     scrollInstanceRef.current = new LocomotiveScroll({
       el: scrollRef.current,
       smooth: true,
-      lerp: 0.2,
     });
 
     // Clean up on unmount
