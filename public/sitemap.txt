@@ -1,0 +1,11 @@
+https://salesight.netlify.app/
+https://salesight.netlify.app/dashboard
+https://salesight.netlify.app/auth
+https://salesight.netlify.app/dataportal
+https://salesight.netlify.app/aiportal
+https://salesight.netlify.app/data
+https://salesight.netlify.app/models
+https://salesight.netlify.app/landing
+https://salesight.netlify.app/profile
+https://salesight.netlify.app/chooseplan
+https://salesight.netlify.app/verify/:token
