@@ -29,14 +29,17 @@ const DataDisplay = () => {
   const handleDelete = async (id) => {
     try {
       console.log(id);
-      const response = await fetch(`http://127.0.0.1:8000/api/delete_row/`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify({ row: id }),
-      });
+      const response = await fetch(
+        `https://salesightbackend.onrender.com/api/delete_row/`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify({ row: id }),
+        }
+      );
 
       if (response.auth) {
         navigate("/auth");
@@ -56,13 +59,16 @@ const DataDisplay = () => {
     const fetchData = async () => {
       try {
         setLoading(true);
-        const response = await fetch("http://127.0.0.1:8000/api/data/", {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-        });
+        const response = await fetch(
+          "https://salesightbackend.onrender.com/api/data/",
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
         const res = await response.json();
         if (res.auth) {
           navigate("/auth");
@@ -76,13 +82,16 @@ const DataDisplay = () => {
       } finally {
         try {
           setLoading(true);
-          const response = await fetch("http://127.0.0.1:8000/api/data/", {
-            method: "GET",
-            headers: {
-              "Content-Type": "application/json",
-              Authorization: `Bearer ${token}`,
-            },
-          });
+          const response = await fetch(
+            "https://salesightbackend.onrender.com/api/data/",
+            {
+              method: "GET",
+              headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${token}`,
+              },
+            }
+          );
           const res = await response.json();
           if (res.auth) {
             navigate("/auth");
@@ -104,13 +113,16 @@ const DataDisplay = () => {
 
   const handleExport = async () => {
     try {
-      const response = await fetch("http://127.0.0.1:8000/api/export_csv/", {
-        method: "GET",
-        headers: {
-          "Content-Type": "text/csv",
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      const response = await fetch(
+        "https://salesightbackend.onrender.com/api/export_csv/",
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "text/csv",
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
 
       if (!response.ok) {
         throw new Error("Network response was not ok");

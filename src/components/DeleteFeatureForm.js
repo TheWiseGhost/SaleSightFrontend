@@ -25,7 +25,7 @@ const DeleteFeatureForm = () => {
     try {
       setLoading(true);
       const response = await fetch(
-        "http://127.0.0.1:8000/api/get_feature_values/",
+        "https://salesightbackend.onrender.com/api/get_feature_values/",
         {
           method: "GET",
           headers: {
@@ -57,7 +57,7 @@ const DeleteFeatureForm = () => {
       formData.append("option", option);
 
       const response = await fetch(
-        "http://127.0.0.1:8000/api/delete_feature/",
+        "https://salesightbackend.onrender.com/api/delete_feature/",
         {
           method: "POST",
           body: formData,

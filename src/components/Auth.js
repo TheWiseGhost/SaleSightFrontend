@@ -38,13 +38,16 @@ const Auth = () => {
   const handleSignUpSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("http://127.0.0.1:8000/api/sign_up/", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(signUpData),
-      });
+      const response = await fetch(
+        "https://salesightbackend.onrender.com/api/sign_up/",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(signUpData),
+        }
+      );
       if (response.ok) {
         alert(
           "Sign-up successful. Please check your email to verify your account"
@@ -60,13 +63,16 @@ const Auth = () => {
   const handleLoginSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("http://127.0.0.1:8000/api/login/", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(loginData),
-      });
+      const response = await fetch(
+        "https://salesightbackend.onrender.com/api/login/",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(loginData),
+        }
+      );
       const data = await response.json();
       if (response.ok) {
         if (data.pay) {

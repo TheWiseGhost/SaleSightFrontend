@@ -47,7 +47,7 @@ const PredictionForm = () => {
 
       try {
         const response = await fetch(
-          "http://127.0.0.1:8000/api/get_prediction_form/",
+          "https://salesightbackend.onrender.com/api/get_prediction_form/",
           {
             method: "GET",
             headers: {
@@ -105,7 +105,7 @@ const PredictionForm = () => {
       };
 
       const response = await fetch(
-        "http://127.0.0.1:8000/api/prediction/",
+        "https://salesightbackend.onrender.com/api/prediction/",
         requestOptions
       );
       const data = await response.json();

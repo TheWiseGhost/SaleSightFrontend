@@ -35,13 +35,16 @@ const Dashboard = () => {
   useEffect(() => {
     const fetchRecentData = async () => {
       try {
-        const response = await fetch("http://127.0.0.1:8000/api/recent_data/", {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`, // Include JWT in headers
-          },
-        });
+        const response = await fetch(
+          "https://salesightbackend.onrender.com/api/recent_data/",
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${token}`, // Include JWT in headers
+            },
+          }
+        );
         const data = await response.json();
         if (data.auth) {
           navigate("/auth");
@@ -62,7 +65,7 @@ const Dashboard = () => {
       try {
         setLoading(true);
         const response = await fetch(
-          "http://127.0.0.1:8000/api/recent_models/",
+          "https://salesightbackend.onrender.com/api/recent_models/",
           {
             method: "GET",
             headers: {

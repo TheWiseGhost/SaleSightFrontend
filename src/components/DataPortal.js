@@ -69,7 +69,7 @@ const DataPortal = () => {
       try {
         setLoading(true);
         const response = await fetch(
-          "http://127.0.0.1:8000/api/get_feature_values/",
+          "https://salesightbackend.onrender.com/api/get_feature_values/",
           {
             method: "GET",
             headers: {
@@ -125,13 +125,16 @@ const DataPortal = () => {
   const handleExport = async () => {
     const token = localStorage.getItem("token");
     try {
-      const response = await fetch("http://127.0.0.1:8000/api/export_csv/", {
-        method: "GET",
-        headers: {
-          "Content-Type": "text/csv",
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      const response = await fetch(
+        "https://salesightbackend.onrender.com/api/export_csv/",
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "text/csv",
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
 
       if (!response.ok) {
         throw new Error("Network response was not ok");

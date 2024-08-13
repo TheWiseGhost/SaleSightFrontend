@@ -13,14 +13,17 @@ function StoreModel() {
     e.preventDefault();
     setLoading(true);
     try {
-      const response = await fetch("http://127.0.0.1:8000/api/store_model/", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify({ name }),
-      });
+      const response = await fetch(
+        "https://salesightbackend.onrender.com/api/store_model/",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify({ name }),
+        }
+      );
       const data = await response.json();
       if (data.auth) {
         navigate("/auth");

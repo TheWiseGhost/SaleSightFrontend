@@ -22,14 +22,17 @@ const AddFeatureForm = () => {
     };
 
     try {
-      const response = await fetch("http://127.0.0.1:8000/api/add_feature/", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify(data),
-      });
+      const response = await fetch(
+        "https://salesightbackend.onrender.com/api/add_feature/",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify(data),
+        }
+      );
 
       const responseData = await response.json();
       if (responseData.auth) {

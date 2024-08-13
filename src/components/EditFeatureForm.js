@@ -41,7 +41,7 @@ const EditFeatureForm = () => {
 
       try {
         const response = await fetch(
-          "http://127.0.0.1:8000/api/get_feature_values/",
+          "https://salesightbackend.onrender.com/api/get_feature_values/",
           {
             method: "GET",
             headers: {
@@ -74,18 +74,21 @@ const EditFeatureForm = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch("http://127.0.0.1:8000/api/edit_feature/", {
-        method: "POST",
-        body: JSON.stringify({
-          feature: translator[activeFeature],
-          main: activeOption,
-          text: text,
-        }),
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      const response = await fetch(
+        "https://salesightbackend.onrender.com/api/edit_feature/",
+        {
+          method: "POST",
+          body: JSON.stringify({
+            feature: translator[activeFeature],
+            main: activeOption,
+            text: text,
+          }),
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
 
       const data = await response.json();
 

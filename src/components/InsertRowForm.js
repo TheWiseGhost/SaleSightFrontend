@@ -46,7 +46,7 @@ const InsertFormRow = () => {
 
       try {
         const response = await fetch(
-          "http://127.0.0.1:8000/api/get_feature_values/",
+          "https://salesightbackend.onrender.com/api/get_feature_values/",
           {
             method: "GET",
             headers: {
@@ -104,7 +104,7 @@ const InsertFormRow = () => {
       };
 
       const response = await fetch(
-        "http://127.0.0.1:8000/api/insert_row/",
+        "https://salesightbackend.onrender.com/api/insert_row/",
         requestOptions
       );
       const data = await response.json();

@@ -27,13 +27,16 @@ const ModelDisplay = () => {
     const fetchData = async () => {
       try {
         setLoading(true);
-        const response = await fetch("http://127.0.0.1:8000/api/models/", {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`, // Include JWT in headers
-          },
-        });
+        const response = await fetch(
+          "https://salesightbackend.onrender.com/api/models/",
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${token}`, // Include JWT in headers
+            },
+          }
+        );
         const res = await response.json();
         if (res.auth) {
           navigate("/auth");

@@ -23,13 +23,16 @@ const Profile = () => {
       const token = localStorage.getItem("token"); // Retrieve the token from localStorage
 
       try {
-        const response = await fetch("http://127.0.0.1:8000/api/user_info/", {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`, // Include JWT in headers
-          },
-        });
+        const response = await fetch(
+          "https://salesightbackend.onrender.com/api/user_info/",
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${token}`, // Include JWT in headers
+            },
+          }
+        );
         if (response.auth) {
           navigate("/auth");
         }
