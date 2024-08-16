@@ -14,6 +14,7 @@ const Auth = () => {
     password: "",
   });
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
 
   const handleNavigation = (path) => {
     navigate(path);
@@ -37,6 +38,7 @@ const Auth = () => {
 
   const handleSignUpSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
     try {
       const response = await fetch(
         "https://salesightbackend.onrender.com/api/sign_up/",
@@ -49,18 +51,19 @@ const Auth = () => {
         }
       );
       if (response.ok) {
-        alert(
-          "Sign-up successful. Please check your email to verify your account"
-        );
+        alert("Sign-up successful. Please log in using your new account/");
       } else {
         alert("Sign-up failed");
       }
     } catch (error) {
       console.error("Error:", error);
+    } finally {
+      setLoading(false);
     }
   };
 
   const handleLoginSubmit = async (e) => {
+    setLoading(true);
     e.preventDefault();
     try {
       const response = await fetch(
@@ -90,6 +93,8 @@ const Auth = () => {
       }
     } catch (error) {
       console.error("Error:", error);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -150,12 +155,18 @@ const Auth = () => {
               value={signUpData.password}
               onChange={handleSignUpChange}
             />
-            <button
-              className="font-abo-one mt-4 text-lg auth_button bg-blue-300 transition duration-300 hover:bg-blue-400 py-3 px-6 rounded-2xl"
-              type="submit"
-            >
-              Sign Up
-            </button>
+            {loading ? (
+              <div className="flex justify-center items-center">
+                <div className="w-10 h-10 border-4 border-blue-500 border-dotted rounded-full animate-spin"></div>
+              </div>
+            ) : (
+              <button
+                className="font-abo-one mt-4 text-lg auth_button bg-blue-300 transition duration-300 hover:bg-blue-400 py-3 px-6 rounded-2xl"
+                type="submit"
+              >
+                Sign Up
+              </button>
+            )}
           </form>
         </div>
         <div className="form-container sign-in-container">
@@ -187,12 +198,18 @@ const Auth = () => {
             <a className="text-sm text-gray-600 mb-2 hover:underline" href="#">
               Forgot your password?
             </a>
-            <button
-              className="font-abo-one mt-4 text-lg auth_button bg-blue-300 transition duration-300 hover:bg-blue-400 py-3 px-6 rounded-2xl"
-              type="submit"
-            >
-              Login
-            </button>
+            {loading ? (
+              <div className="flex justify-center items-center">
+                <div className="w-10 h-10 border-4 border-blue-500 border-dotted rounded-full animate-spin"></div>
+              </div>
+            ) : (
+              <button
+                className="font-abo-one mt-4 text-lg auth_button bg-blue-300 transition duration-300 hover:bg-blue-400 py-3 px-6 rounded-2xl"
+                type="submit"
+              >
+                Login
+              </button>
+            )}
           </form>
         </div>
         <div className="overlay-container">
